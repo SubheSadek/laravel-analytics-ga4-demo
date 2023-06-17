@@ -1,0 +1,26 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "babel-plugin-import": "^1.13.6",
+        "laravel-vite-plugin": "^0.7.5",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^4.2.3",
+        "chart.js": "^4.3.0",
+        "lodash": "^4.17.21",
+        "pinia": "^2.1.3",
+        "view-ui-plus": "^1.3.12",
+        "vue": "^3.2.36",
+        "vue-chartjs": "^5.2.0",
+        "vue-loader": "^17.0.1",
+        "vue-router": "^4.2.1"
+    }
+}
