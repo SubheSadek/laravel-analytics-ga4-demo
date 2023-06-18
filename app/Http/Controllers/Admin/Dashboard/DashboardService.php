@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Admin\Manage\User\UserService;
 use App\Utilities\Utility;
+use Google\Analytics\Data\V1alpha\Filter\NumericFilter;
 use Illuminate\Http\JsonResponse;
 
 use Spatie\Analytics\Facades\Analytics;
@@ -21,8 +22,8 @@ class DashboardService
     public function getAnalyticsData(): JsonResponse
     {
         $orderBy = [
-            OrderBy::dimension('country', true),
-            // OrderBy::metric('pageViews', false),
+            OrderBy::dimension('browser', true),
+            // OrderBy::metric('totalUsers', false),
         ];
 
         $dimensionFilter = new FilterExpression([
@@ -34,8 +35,7 @@ class DashboardService
                 ]),
             ]),
         ]);
-
-        $analyticsData = Analytics::get(Period::days(10), ['active1DayUsers', 'active7DayUsers', 'totalUsers'], ['country', 'browser', 'date'], 10);
-        return withSuccess($dimensionFilter);
+        $analyticsData = Analytics::get(Period::days(1), ['totalUsers', 'sessions'], ['date', 'eventName', 'pageTitle', 'browser'], 15, $orderBy);
+        return withSuccess($analyticsData);
     }
 }
