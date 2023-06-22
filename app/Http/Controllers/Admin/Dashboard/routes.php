@@ -19,4 +19,6 @@ Route::prefix('dashboard')->as('dashboard.')
     ->controller(DashboardController::class)
     ->group(function ($route) {
         $route->get('get-analytics', 'getAnalytics')->name('get_analytics');
+        $route->get('get-page-views-duration', 'getPageViewsDuration')->name('get_page_views_duration');
+        $route->get('get-total-duration', 'getTotalDuration')->name('get_total_duration');
     });

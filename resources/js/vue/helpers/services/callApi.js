@@ -8,7 +8,7 @@ import { infoMsg, successMsg, swrMsg, warningMsg } from "./message";
 
 const WARNING_STATUS = [404, 401, 400];
 
-export const callApi = async (method, url, data, dataType = 'data') => {
+export const callApi = async (method, url, data = {}, dataType = 'data') => {
     LoadingBar.start();
     try {
         const res = await axios({

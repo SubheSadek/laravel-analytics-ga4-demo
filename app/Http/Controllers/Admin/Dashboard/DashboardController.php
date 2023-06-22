@@ -17,4 +17,14 @@ class DashboardController extends Controller
     {
         return $this->dashboardService->getAnalyticsData($request->validated());
     }
+
+    public function getPageViewsDuration(Request $request)
+    {
+        return $this->dashboardService->getPageViewsDuration($request->validated());
+    }
+
+    public function getTotalDuration(Request $request)
+    {
+        return $this->dashboardService->getTotalDuration($request);
+    }
 }
